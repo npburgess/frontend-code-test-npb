@@ -12,13 +12,16 @@ import {
   HiUser,
   HiViewBoards,
 } from 'react-icons/hi';
+import { useIsLinkActive } from '../hooks/useIsLinkActive';
 
 export const Sidebar = ({ className }: { className?: string }) => {
+  const isLinkActive = useIsLinkActive();
+
   return (
     <FlowbiteSidebar aria-label="Default sidebar example" className={className}>
       <SidebarItems>
         <SidebarItemGroup>
-          <SidebarItem href="/" icon={HiHome} active={true}>
+          <SidebarItem href="/" icon={HiHome} active={isLinkActive('/')}>
             Home
           </SidebarItem>
           <SidebarItem
@@ -32,7 +35,11 @@ export const Sidebar = ({ className }: { className?: string }) => {
           <SidebarItem href="#" icon={HiInbox} label="3">
             Inbox
           </SidebarItem>
-          <SidebarItem href="/users" icon={HiUser}>
+          <SidebarItem
+            href="/users"
+            icon={HiUser}
+            active={isLinkActive('/users')}
+          >
             Users
           </SidebarItem>
           <SidebarItem href="#" icon={HiShoppingBag}>
