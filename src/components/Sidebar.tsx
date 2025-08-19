@@ -6,7 +6,7 @@ import {
 } from 'flowbite-react';
 import {
   HiArrowSmRight,
-  HiChartPie,
+  HiHome,
   HiInbox,
   HiShoppingBag,
   HiUser,
@@ -18,8 +18,8 @@ export const Sidebar = ({ className }: { className?: string }) => {
     <FlowbiteSidebar aria-label="Default sidebar example" className={className}>
       <SidebarItems>
         <SidebarItemGroup>
-          <SidebarItem href="/" icon={HiChartPie} active={true}>
-            Dashboard
+          <SidebarItem href="/" icon={HiHome} active={true}>
+            Home
           </SidebarItem>
           <SidebarItem
             href="#"
