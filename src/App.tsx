@@ -10,7 +10,7 @@ export default function App() {
       <Navbar />
       <div className="mt-2 flex gap-2">
         <Sidebar className="hidden md:block" />
-        <main className="flex-1 px-2">
+        <main className="flex-1 px-2 pb-10">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
