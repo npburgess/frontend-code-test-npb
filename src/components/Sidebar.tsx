@@ -32,7 +32,7 @@ export const Sidebar = ({ className }: { className?: string }) => {
           <SidebarItem href="#" icon={HiInbox} label="3">
             Inbox
           </SidebarItem>
-          <SidebarItem href="#" icon={HiUser}>
+          <SidebarItem href="/users" icon={HiUser}>
             Users
           </SidebarItem>
           <SidebarItem href="#" icon={HiShoppingBag}>
