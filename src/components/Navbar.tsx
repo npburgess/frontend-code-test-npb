@@ -16,7 +16,7 @@ export const Navbar = () => {
           alt="Flowbite React Logo"
         />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          ACME Inc
+          {import.meta.env.VITE_BRAND_NAME}
         </span>
       </NavbarBrand>
       <NavbarToggle />

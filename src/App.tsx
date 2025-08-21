@@ -29,7 +29,7 @@ export default function App() {
             <Footer container className="mt-6">
               <FooterCopyright
                 href="#"
-                by="ACME Inc"
+                by={import.meta.env.VITE_BRAND_NAME}
                 year={new Date().getFullYear()}
               />
               <FooterLinkGroup>
