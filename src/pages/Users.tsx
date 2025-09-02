@@ -1,6 +1,6 @@
 import { Badge, Button, Card, Dropdown, DropdownItem } from 'flowbite-react';
 import { HiChevronRight } from 'react-icons/hi';
-import { User, fetchUserData } from '../utils/api';
+import { User, fetchUserData } from '../services/api';
 import React, { useState, useEffect } from 'react';
     
 export const Users: React.FC = () => {
