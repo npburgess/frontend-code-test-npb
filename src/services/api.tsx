@@ -1,22 +1,5 @@
-export interface User {
-	id: number;
-	name: string;
-	username: string;
-	email: string;
-	phone: string;
-	website: string;
-	address: {
-		city: string;
-		street: string;
-		suite: string;
-		zipcode: string;
-	}
-	company: {
-		name: string;
-		bs: string;
-		catchPhrase: string;
-	}
-}
+import { User } from "../types"
+import { sortUserData } from "../utils/sorting"
 
 export async function fetchUserData(): Promise<User[]> {
 	const response = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -24,5 +7,6 @@ export async function fetchUserData(): Promise<User[]> {
 		throw new Error('Failed to fetch user data');
 	}
 	const data: User[] = await response.json();
-	return data;
+	//default sort
+	return sortUserData('name', data);
 }

@@ -1,10 +1,13 @@
+import React, { useState, useEffect } from 'react';
 import { Badge, Button, Card, Dropdown, DropdownItem } from 'flowbite-react';
 import { HiChevronRight } from 'react-icons/hi';
-import { User, fetchUserData } from '../services/api';
-import React, { useState, useEffect } from 'react';
+import { User } from "../types"
+import { fetchUserData } from '../services/api';
+import { sortUserData } from '../utils/sorting';
     
 export const Users: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const [dropdownLabel, setDropdownLabel] = useState('Name');
 
   useEffect(() => {
     const fetchAndSetUsers = async () => {
@@ -18,6 +21,11 @@ export const Users: React.FC = () => {
     fetchAndSetUsers();
   }, []);
 
+  const handleItemClick = (itemName: string) => {
+    const labelName = itemName === "id" ? "ID" : itemName;
+    setDropdownLabel(labelName);
+    sortUserData(itemName as keyof User, users)
+  };
 
   return (
     <div>
@@ -29,10 +37,11 @@ export const Users: React.FC = () => {
           <div className="text-sm text-gray-500 dark:text-gray-400">
             Sort by:
           </div>
-          <Dropdown label={'Name Desc'}>
-            <DropdownItem value="name">Name</DropdownItem>
-            <DropdownItem value="Username">Username</DropdownItem>
-            <DropdownItem value="Company">Company</DropdownItem>
+          <Dropdown label={dropdownLabel} className='capitalize'>
+            <DropdownItem onClick={() => handleItemClick('name')} value="name">Name</DropdownItem>
+            <DropdownItem onClick={() => handleItemClick('username')}  value="Username">Username</DropdownItem>
+            <DropdownItem onClick={() => handleItemClick('company')}  value="Company">Company</DropdownItem>
+            <DropdownItem onClick={() => handleItemClick('id')}  value="id">ID</DropdownItem>
           </Dropdown>
         </div>
       </div>
