@@ -105,7 +105,7 @@ export const Users: React.FC = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="truncate">{user.address.city + ", " + user.address.zipcode}</span>
+                    <span className="truncate">{user.address?.city + ", " + user.address?.zipcode}</span>
                   </div>
                 </div>
                 <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-600">
@@ -122,11 +122,11 @@ export const Users: React.FC = () => {
                       />
                     </svg>
                     <span className="font-medium text-gray-900 dark:text-white">
-                      {user.company.name}
+                      {user.company?.name}
                     </span>
                   </div>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 italic">
-                    "{user.company.catchPhrase}"
+                    "{user.company?.catchPhrase}"
                   </p>
                 </div>
               </div>

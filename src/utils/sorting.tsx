@@ -15,7 +15,6 @@ export function sortUserData(key: keyof User, users: User[]): User[] {
 			if (typeof keyA === "string" && typeof keyB === "string") {
 				return keyA.localeCompare(keyB);
 			} else if (typeof keyA === "number" && typeof keyB === "number") {
-				console.log("number")
 				return keyA - keyB;
 			}
 
